@@ -9,6 +9,17 @@ class Yatzy:
         total += d4
         total += d5
         return total
+    
+    @staticmethod
+    def crazy_chance(dices):
+        total = 0
+        
+        for dice in dices:
+            isOdd = dice % 2 != 0
+            if(isOdd) :total+= (2*dice)
+            else:
+                total+= (3*dice)
+        return total
 
     @staticmethod
     def yatzy(dice):

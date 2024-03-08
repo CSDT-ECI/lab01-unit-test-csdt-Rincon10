@@ -9,16 +9,32 @@ def test_demo():
         actual = 15
         assert expected == actual  
 
-def test_YatzyRuleAllDiceHaveTheSameNumberThenGetScore50():
+def test_ChanceRuleShouldReturnTheSumOfAllDice():
+        dice = [1,1,3,3,6]
+        expected = 14
+        actual = Yatzy.chance(dice[0],dice[1],dice[2],dice[3],dice[4])
+
+        assert expected == actual
+
+def test_YatzyRuleAllDiceHaveTheSameNumberThenGet50Points():
         dice = [1,1,1,1,1]
         expected = 50
         actual = Yatzy.yatzy(dice)
 
         assert expected == actual
 
-def test_YatzyRuleExistsAnDiferentDiceThenGetScore0():
+def test_YatzyRuleExistsAtLeassOneDifferentDiceThenGet0Points():
         dice = [1,1,1,2,1]
         expected = 0
         actual = Yatzy.yatzy(dice)
 
         assert expected == actual
+
+def test_PairsRuleShouldGet0PointsForAllDifferentsDice():
+        dice = [1,2,3,4,5]
+        expected = 0
+        actual = Yatzy.score_pair(dice[0],dice[1],dice[2],dice[3],dice[4])
+
+        assert expected == actual
+
+
